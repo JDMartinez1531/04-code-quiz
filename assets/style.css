@@ -1,0 +1,13 @@
+.intro {
+  align-items: center;
+  justify-content: center;
+  padding-top: 300px;
+}
+
+#start {
+  margin-top: 50px;
+}
+
+p {
+  margin: 10px 200px;
+}
