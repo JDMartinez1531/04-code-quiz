@@ -52,7 +52,11 @@ let questions = [
     correct: "D",
   },
 ];
-// other variables
+//variables
+let currentQuestion = 0;
+const time = 60;
+let score = 0;
+let highscore;
 
 // render questions
 
