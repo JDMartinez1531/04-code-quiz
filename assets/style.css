@@ -1,6 +1,4 @@
-#intro {
-  align-items: center;
-  justify-content: center;
+.intro1 {
   padding-top: 300px;
 }
 
@@ -9,8 +7,15 @@
 }
 
 p {
-  margin: 10px 200px;
+  margin: 10px 50px;
   width: auto;
+  text-align: center;
+}
+
+.center-layout {
+  margin: 10px 50px;
+  width: auto;
+  text-align: center;
 }
 
 #quiz {
@@ -22,5 +27,13 @@ p {
 }
 
 .choice {
+  /*display: none;*/
+}
+
+.btn-group-vertical {
+  align-items: center;
+}
+
+.invisIntro {
   display: none;
 }

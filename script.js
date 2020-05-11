@@ -58,11 +58,11 @@ let questions = [
 ];
 //variables
 let currentQuestion = 0;
-const time = 60;
+const quizTime = 60;
 let score = 0;
 let highscore;
+let TIME;
 
-// render questions
 function renderQuestion() {
   let q = questions[currentQuestion];
 
@@ -73,8 +73,15 @@ function renderQuestion() {
   choiceD.innerHTML = q.answers[3];
 }
 
+start.addEventListener("click", startQuiz);
 // start btn function
-
+function startQuiz() {
+  intro.className += " d-none";
+  renderQuestion();
+  quizDsply.style.display = "block";
+  renderCounter();
+  TIME = setInterval(renderCounter, 1000);
+}
 // score
 
 // timer

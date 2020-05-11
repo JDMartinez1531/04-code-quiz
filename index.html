@@ -6,7 +6,6 @@
       name="viewport"
       content="width=device-width, initial-scale=1, shrink-to-fit=no"
     />
-    <script src="./script.js"></script>
     <link
       rel="stylesheet"
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
@@ -18,22 +17,25 @@
   </head>
   <body>
     <div id="container">
-      <div class="d-flex flex-column" id="intro">
-        <h1>Coding Quiz</h1>
-        <p>
-          Rules: Answer as many question as you can in 60 seconds. Every correct
-          answer is worth 10pts. Every incorrect asnwer reduces your time by 10
-          seconds. Good Luck!
-        </p>
-        <div class="btn-group-vertical">
-          <button type="button" class="btn btn-primary" id="start">
-            Start Quiz
-          </button>
+      <div id="intro">
+        <div class="d-flex flex-column justify-content-center">
+          <h1 class="center-layout">Coding Quiz</h1>
+
+          <p>
+            Rules: Answer as many question as you can in 60 seconds. Every
+            correct answer is worth 10pts. Every incorrect asnwer reduces your
+            time by 10 seconds. Good Luck!
+          </p>
+          <div class="center-layout" t>
+            <button type="button" class="btn btn-primary" id="start">
+              Start Quiz
+            </button>
+          </div>
         </div>
       </div>
-      <div class="d-flex flex-column" id="quiz">
+      <div id="quiz" class="center-layout">
         <div id="question"></div>
-        <div class="btn-group-vertical">
+        <div class="">
           <div type="button" class="btn btn-info choice" id="A"></div>
           <div type="button" class="btn btn-info choice" id="B"></div>
           <div type="button" class="btn btn-info choice" id="C"></div>
@@ -44,6 +46,7 @@
       <div id="scoreCard"></div>
       <div id="hScoreForm"></div>
     </div>
+
     <script
       src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
       integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
@@ -59,5 +62,6 @@
       integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
       crossorigin="anonymous"
     ></script>
+    <script src="script.js"></script>
   </body>
 </html>
