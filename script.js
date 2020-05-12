@@ -4,7 +4,7 @@ const start = document.getElementById("start");
 const question = document.getElementById("question");
 const quizDsply = document.getElementById("quiz");
 const timer = document.getElementById("timer");
-const scoreCard = document.getElementById("scoreContainer");
+const scoreCard = document.getElementById("scoreCard");
 const hScoreForm = document.getElementById("hScoreForm");
 const choiceA = document.getElementById("A");
 const choiceB = document.getElementById("B");
@@ -78,12 +78,16 @@ start.addEventListener("click", startQuiz);
 function startQuiz() {
   intro.className += " d-none";
   renderQuestion();
+  renderScore();
   quizDsply.style.display = "block";
   renderCounter();
   TIME = setInterval(renderCounter, 1000);
 }
 // score
-
+function renderScore() {
+  scoreCard.style.display = "block";
+  scoreCard.innerHTML = "Score: " + score;
+}
 // timer
 function renderCounter() {
   timer.style.display = "block";
