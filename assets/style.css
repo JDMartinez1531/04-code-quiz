@@ -27,8 +27,7 @@ p {
 }
 
 .choice {
-  /*display: none;*/
-}
+font-weight: bold;
 
 .btn-group-vertical {
   align-items: center;
@@ -36,4 +35,14 @@ p {
 
 .invisIntro {
   display: none;
+}
+
+#timer {
+  display: none;
+  margin-left: 250px;
+  margin-bottom: 0px;
+  border: #770c0a;
+  border-style: double;
+  width: 28px;
+  padding: 2px 2px;
 }

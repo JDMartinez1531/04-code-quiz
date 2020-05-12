@@ -58,10 +58,10 @@ let questions = [
 ];
 //variables
 let currentQuestion = 0;
-const quizTime = 60;
+let quizTime = 2;
 let score = 0;
 let highscore;
-let TIME;
+var TIME;
 
 function renderQuestion() {
   let q = questions[currentQuestion];
@@ -85,7 +85,14 @@ function startQuiz() {
 // score
 
 // timer
-
+function renderCounter() {
+  timer.style.display = "block";
+  timer.innerHTML = quizTime;
+  quizTime--;
+  if (quizTime === -1) {
+    gameOver();
+  }
+}
 // check answer
 
 // answer is correct + 10 to score
@@ -93,3 +100,6 @@ function startQuiz() {
 // answer is incorrect -10 seconds
 
 // render high score form
+function gameOver() {
+  clearInterval(TIME);
+}
