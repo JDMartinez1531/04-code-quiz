@@ -58,10 +58,11 @@ let questions = [
 ];
 //variables
 let currentQuestion = 0;
-let quizTime = 2;
-let score = 0;
+let quizTime = 60;
+var score = 0;
 let highscore;
 var TIME;
+const lastQuestion = questions.length - 1;
 
 function renderQuestion() {
   let q = questions[currentQuestion];
@@ -86,7 +87,7 @@ function startQuiz() {
 // score
 function renderScore() {
   scoreCard.style.display = "block";
-  scoreCard.innerHTML = "Score: " + score;
+  scoreCard.innerHTML = score;
 }
 // timer
 function renderCounter() {
@@ -98,12 +99,25 @@ function renderCounter() {
   }
 }
 // check answer
-
-// answer is correct + 10 to score
-
-// answer is incorrect -10 seconds
+function checkAnswer(answer) {
+  if (answer == questions[currentQuestion].correct) {
+    score += 10;
+    renderScore();
+  } else {
+    quizTime -= 10;
+  }
+  if (currentQuestion < lastQuestion) {
+    currentQuestion++;
+    renderQuestion();
+  } else {
+    // end the quiz and show hiscore form
+    gameOver();
+  }
+}
 
 // render high score form
 function gameOver() {
   clearInterval(TIME);
 }
+
+// save highscore to local/get highscore data
