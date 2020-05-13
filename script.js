@@ -20,7 +20,7 @@ let questions = [
   },
   {
     question: "In CSS, what is he correct option to select all <p> tags?",
-    answers: [".p {}", "p {}", "<p> {}", "p []"],
+    answers: [".p {}", "p {}", "p ()", "p []"],
     correct: "B",
   },
   {
@@ -31,7 +31,7 @@ let questions = [
   },
   {
     question: "Select the option to make a list with numbered items?",
-    answers: ["<ol>", "<di>", "<ui>", "<list>"],
+    answers: ["ol", "di", "ui", "list"],
     correct: "A",
   },
   {
@@ -42,12 +42,12 @@ let questions = [
   },
   {
     question: "Inside which HTML element do we put the JavaScript?",
-    answers: ["<js>", "<scripting>", "<script>", "<javascript>"],
+    answers: ["js", "scripting", "script", "javascript"],
     correct: "C",
   },
   {
     question: "How do you add a comment in javascript?",
-    answers: ["//Comment", "<!--comment--!", "*/comment/*", "/*comment/*"],
+    answers: ["//Comment", "comment//", "*/comment/*", "/*comment/*"],
     correct: "A",
   },
   {
@@ -60,7 +60,7 @@ let questions = [
 let currentQuestion = 0;
 let quizTime = 60;
 var score = 0;
-let highscore;
+
 var TIME;
 const lastQuestion = questions.length - 1;
 
@@ -118,6 +118,9 @@ function checkAnswer(answer) {
 // render high score form
 function gameOver() {
   clearInterval(TIME);
+  quizDsply.style.display = "none";
+  hScoreForm.style.display = "block";
+  document.getElementById("highScore").value = score;
 }
 
 // save highscore to local/get highscore data
