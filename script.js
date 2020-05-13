@@ -10,6 +10,9 @@ const choiceA = document.getElementById("A");
 const choiceB = document.getElementById("B");
 const choiceC = document.getElementById("C");
 const choiceD = document.getElementById("D");
+var highScoreForm = document.querySelector("#highScoreForm");
+var nameInput = document.querySelector("#name");
+var scoreInput = document.querySelector("#highScore");
 
 // create questions
 let questions = [
@@ -60,7 +63,7 @@ let questions = [
 let currentQuestion = 0;
 let quizTime = 60;
 var score = 0;
-
+var submitBtn = document.querySelector("#submit");
 var TIME;
 const lastQuestion = questions.length - 1;
 
@@ -114,13 +117,63 @@ function checkAnswer(answer) {
     gameOver();
   }
 }
+var highScores = [{ scores: { name: "", score: "" } }];
 
+var highScoreList = document.querySelector("#highScoreElement");
 // render high score form
 function gameOver() {
   clearInterval(TIME);
   quizDsply.style.display = "none";
   hScoreForm.style.display = "block";
   document.getElementById("highScore").value = score;
+  init();
+}
+function renderHighScores() {
+  highScoreList.innerHTML = "";
+  // render new li for each high score
+  for (var i = 0; i < highScores.length; i++) {
+    var highScore = highScores[i];
+    var li = document.createElement("li");
+    li.textContent = highScore;
+    li.setAttribute("data-index", i);
+    highScoreList.appendChild(li);
+  }
 }
 
-// save highscore to local/get highscore data
+// get stored highScores from localStorage
+// parse JSON string to an object
+function init() {
+  var storedHighScores = JSON.parse(localStorage.getItem("highScores"));
+  // If highscores were retrieved from localStorage, update the highScoreList array to it
+  if (storedHighScores !== null) {
+    highScores = storedHighScores;
+  }
+
+  // render highScores to the DOM
+  renderHighScores();
+}
+
+function storeHighScores() {
+  //  Stringify and set "highScores" key in localStorage to HighScoreList array
+  localStorage.setItem("highScores", JSON.stringify(highScores));
+}
+
+// when form is submitted
+highScoreForm.addEventListener("submit", function (event) {
+  event.preventDefault();
+
+  var name = nameInput.value.trim();
+
+  // Return from function early if submitted name is blank
+  if (name === "") {
+    return;
+  }
+
+  // Add new highScore to highscores array, clear the input
+  highScores.push(name);
+  nameInput.value = "";
+
+  // Store updated highscores in localStorage, re-render the list
+  storeHighScores();
+  renderHighScores();
+});
