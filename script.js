@@ -163,7 +163,8 @@ highScoreForm.addEventListener("submit", function (event) {
   event.preventDefault();
 
   var name = nameInput.value.trim();
-  var score = highScore.value.trim();
+
+  var score = highScore.value
 
   // Return from function early if submitted name is blank
   if (name === "") {
@@ -172,7 +173,9 @@ highScoreForm.addEventListener("submit", function (event) {
 
   // Add new highScore to highscores array, clear the input
   highScores.push({name: name, score: score});
+
   nameInput.value = "";
+  scoreInput.value = "";
 
   // Store updated highscores in localStorage, re-render the list
   storeHighScores();
