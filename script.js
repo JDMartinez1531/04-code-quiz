@@ -117,7 +117,7 @@ function checkAnswer(answer) {
     gameOver();
   }
 }
-var highScores = [{ entries: { name: "", score: "" } }];
+var highScores = [{ name: "", score: "" }];
 
 var highScoreList = document.querySelector("#highScoreElement");
 // render high score form
@@ -131,7 +131,7 @@ function gameOver() {
 function renderHighScores() {
   highScoreList.innerHTML = "";
   // render new li for each high score
-  for (var i = 0; i < highScores.length; i++) {
+  for (var i = 1; i < highScores.length; i++) {
     var highScore = highScores[i];
     var li = document.createElement("li");
     li.textContent = highScore;
