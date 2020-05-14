@@ -117,7 +117,7 @@ function checkAnswer(answer) {
     gameOver();
   }
 }
-var highScores = [{ scores: { name: "", score: "" } }];
+var highScores = [];
 
 var highScoreList = document.querySelector("#highScoreElement");
 // render high score form
@@ -134,7 +134,7 @@ function renderHighScores() {
   for (var i = 0; i < highScores.length; i++) {
     var highScore = highScores[i];
     var li = document.createElement("li");
-    li.textContent = highScore;
+    li.textContent = highScore.name + ' ' + highScore.score;
     li.setAttribute("data-index", i);
     highScoreList.appendChild(li);
   }
@@ -163,6 +163,7 @@ highScoreForm.addEventListener("submit", function (event) {
   event.preventDefault();
 
   var name = nameInput.value.trim();
+  var score = highScore.value.trim();
 
   // Return from function early if submitted name is blank
   if (name === "") {
@@ -170,7 +171,7 @@ highScoreForm.addEventListener("submit", function (event) {
   }
 
   // Add new highScore to highscores array, clear the input
-  highScores.push(name);
+  highScores.push({name: name, score: score});
   nameInput.value = "";
 
   // Store updated highscores in localStorage, re-render the list
