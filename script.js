@@ -117,7 +117,7 @@ function checkAnswer(answer) {
     gameOver();
   }
 }
-var highScores = [{ scores: { name: "", score: "" } }];
+var highScores = [{ entries: { name: "", score: "" } }];
 
 var highScoreList = document.querySelector("#highScoreElement");
 // render high score form
@@ -163,15 +163,16 @@ highScoreForm.addEventListener("submit", function (event) {
   event.preventDefault();
 
   var name = nameInput.value.trim();
-
+  var score = scoreInput.value;
   // Return from function early if submitted name is blank
   if (name === "") {
     return;
   }
 
   // Add new highScore to highscores array, clear the input
-  highScores.push(name);
+  highScores.push(name, score);
   nameInput.value = "";
+  scoreInput.value = "";
 
   // Store updated highscores in localStorage, re-render the list
   storeHighScores();
