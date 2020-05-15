@@ -2,4 +2,4 @@
 
 https://jdmartinez1531.github.io/04-code-quiz/
 
-![](https://gph.is/g/ZPWMmPQ)
+![](images\code-quiz-gif.gif)
