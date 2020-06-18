@@ -1,3 +1,7 @@
+#container {
+  margin-top:150px;
+}
+
 .intro1 {
   padding-top: 300px;
 }
@@ -24,6 +28,9 @@ p {
 
 #hScoreForm {
   display: none;
+  margin: auto;
+  width: 75%;
+  padding-top: 100px;
 }
 
 .choice {
@@ -49,4 +56,8 @@ p {
 
 #scoreCard {
   display: none;
+}
+
+#highScoreElement {
+  text-align: left;
 }

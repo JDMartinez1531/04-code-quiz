@@ -1,99 +1,72 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, shrink-to-fit=no"
-    />
-    <link
-      rel="stylesheet"
-      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
-      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
-      crossorigin="anonymous"
-    />
-    <link rel="stylesheet" href="assets/style.css" />
-    <title>Code Quiz</title>
-  </head>
-  <body>
-    <div id="container">
-      <div id="intro">
-        <div class="d-flex flex-column justify-content-center">
-          <h1 class="center-layout">Coding Quiz</h1>
 
-          <p>
-            Rules: Answer as many question as you can in 60 seconds. Every
-            correct answer is worth 10pts. Every incorrect asnwer reduces your
-            time by 10 seconds. Good Luck!
-          </p>
-          <div class="center-layout">
-            <button type="button" class="btn btn-primary" id="start">
-              Start Quiz
-            </button>
-          </div>
-        </div>
-      </div>
-      <div id="quiz" class="center-layout">
-        <div id="timer"></div>
-        <div id="question"></div>
-        <div class="">
-          <div
-            type="button"
-            class="btn btn-info choice"
-            id="A"
-            onclick="checkAnswer('A')"
-          ></div>
-          <div
-            type="button"
-            class="btn btn-info choice"
-            id="B"
-            onclick="checkAnswer('B')"
-          ></div>
-          <div
-            type="button"
-            class="btn btn-info choice"
-            id="C"
-            onclick="checkAnswer('C')"
-          ></div>
-          <div
-            type="button"
-            class="btn btn-info choice"
-            id="D"
-            onclick="checkAnswer('D')"
-          ></div>
-        </div>
-        <div id="scoreCard"></div>
-      </div>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous" />
+  <link rel="stylesheet" href="assets/style.css" />
+  <title>Code Quiz</title>
+</head>
 
-      <div id="hScoreForm" class="center'center-layout">
-        <form id="highScoreForm" method="POST">
-          <input placeholder="Name" id="name" />
-          <label for="highScore">High Score: </label>
-          <input type="text" id="highScore" readonly />
-          <button class="btn btn-info choice" id="submit">Submit</button>
-          <div id="hallOfame">
-            <h4>Hall of Fame</h4>
-            <ol id="highScoreElement"></ol>
-          </div>
-        </form>
+<body>
+  <div id="container">
+    <div id="intro">
+      <div class="d-flex flex-column justify-content-center">
+        <h1 class="center-layout">Coding Quiz</h1>
+
+        <p>
+          Rules: Answer as many question as you can in 60 seconds. Every
+          correct answer is worth 10pts. Every incorrect asnwer reduces your
+          time by 10 seconds. Good Luck!
+        </p>
+        <div class="center-layout">
+          <button type="button" class="btn btn-primary" id="start">
+            Start Quiz
+          </button>
+        </div>
       </div>
     </div>
+    <div id="quiz" class="center-layout">
+      <div id="timer"></div>
+      <div id="question"></div>
+      <div class="">
+        <div type="button" class="btn btn-info choice" id="A" onclick="checkAnswer('A')"></div>
+        <div type="button" class="btn btn-info choice" id="B" onclick="checkAnswer('B')"></div>
+        <div type="button" class="btn btn-info choice" id="C" onclick="checkAnswer('C')"></div>
+        <div type="button" class="btn btn-info choice" id="D" onclick="checkAnswer('D')"></div>
+      </div>
+      <div id="scoreCard"></div>
+    </div>
 
-    <script
-      src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
-      integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-      integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
-      integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
-      crossorigin="anonymous"
-    ></script>
-    <script src="script.js"></script>
-  </body>
+    <div id="hScoreForm" class="center-layout">
+      <form id="highScoreForm" method="POST">
+        <input placeholder="Name" id="name" />
+        <label for="highScore">High Score: </label>
+        <input type="text" id="highScore" readonly />
+        <button class="btn btn-info choice" id="submit">Submit</button>
+        <div id="hallOfame">
+          <h4>Hall of Fame</h4>
+          <ol id="highScoreElement"></ol>
+        </div>
+      </form>
+      <button onClick="window.location.reload();" type="button" class="btn btn-primary" id="tryAgain">
+        Try Again
+      </button>
+    </div>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+    integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+    integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+    crossorigin="anonymous"></script>
+  <script src="script.js"></script>
+</body>
+
 </html>

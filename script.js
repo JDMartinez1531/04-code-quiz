@@ -78,6 +78,7 @@ function renderQuestion() {
 }
 
 start.addEventListener("click", startQuiz);
+
 // start btn function
 function startQuiz() {
   intro.className += " d-none";
